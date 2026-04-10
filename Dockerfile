@@ -1,11 +1,7 @@
-FROM node:18-alpine
+FROM n8nio/n8n:latest
 
-RUN apk add --no-cache ffmpeg
+USER root
 
-RUN npm install -g n8n
+RUN apk add --no-cache ffmpeg python3 py3-pip
 
 USER node
-
-EXPOSE 5678
-
-CMD ["n8n", "start"]
